@@ -14,8 +14,10 @@ Working paper. Target venues: EC 2027, NeurIPS 2026 ML Safety Workshop. April 20
 
 ## Repository contents
 
-- `trilemma_proposal.pdf` — full 2-page research proposal (current artifact)
-- `master_theorem.pdf` — extended proof of the trilemma with all three lemmas (forthcoming)
+- `trilemma_proposal.pdf` — 2-page research proposal
+- `docs/master_theorem.md` — extended proof of the trilemma with all three lemmas (Mossel–Rácz S-leg; Crémer–McLean / Myerson / dAGV I-leg)
+- `docs/theorem_t51_kl_regret.md` — companion proposition T5.1: two-sided KL-regret bound on residual welfare loss when one leg is relaxed
+- `docs/citations_verified.md` — auditor-verified reference list with attribution corrections
 - `empirical_plan.pdf` — pre-registered TruthfulQA-MC1 protocol with power analysis (forthcoming)
 - `references.bib` — BibTeX bibliography (forthcoming)
 
