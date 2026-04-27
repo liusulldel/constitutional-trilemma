@@ -1,6 +1,6 @@
 # Reference Notes
 
-This file keeps citation cautions for the working paper. It is intentionally
+This file keeps citation cautions for the public manuscript. It is intentionally
 plain and conservative so the public repo does not read like an internal audit
 log.
 

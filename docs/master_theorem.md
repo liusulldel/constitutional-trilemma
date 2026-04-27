@@ -1,7 +1,7 @@
-# The Constitutional Trilemma: Working Theorem Sketch
+# The Constitutional Trilemma: Public Argument Sketch
 
 This note states the current public version of the argument. It is a working
-theorem sketch, not a completed general impossibility proof for all
+argument sketch, not a completed general impossibility proof for all
 Constitutional AI systems.
 
 ## Setup
@@ -23,7 +23,7 @@ under the model assumptions below. The strongest current result is an Arrow-styl
 aggregation obstruction; the strategic and informational legs are best read as
 diagnostics for what becomes costly when one relaxes the aggregation conditions.
 
-## Lemma 1: Aggregation Obstruction
+## Claim 1: Aggregation Obstruction
 
 If the critic-level aggregation rule is a social welfare function over at least
 three alternatives and satisfies IIA, Pareto unanimity, and non-dictatorship,
@@ -31,7 +31,7 @@ then Arrow's theorem rules it out. This leg is load-bearing and should not be
 read as a new theorem independent of Arrow. It identifies when a multi-critic
 CAI design has imported the classic social-choice problem.
 
-## Lemma 2: Strategic-Robustness Cost
+## Claim 2: Strategic-Robustness Cost
 
 Gibbard-Satterthwaite-style results and quantitative refinements imply that
 non-dictatorial aggregation rules are vulnerable to manipulation under suitable
@@ -43,7 +43,7 @@ for CAI manipulation probability. Any numeric bound requires a proved reduction
 from the CAI reporting model to the assumptions of the cited quantitative
 Gibbard-Satterthwaite theorem.
 
-## Lemma 3: Informational-Truthfulness Cost
+## Claim 3: Informational-Truthfulness Cost
 
 Single-shot operator disclosure is difficult to make Bayesian incentive
 compatible when the operator's private constitutional prior differs from the

@@ -1,10 +1,10 @@
-# KL-Regret Diagnostic: Working Proposition
+# KL-Regret Diagnostic Note
 
 This note records a diagnostic bound used by the project. It is not a general
 safety guarantee. The bound is meaningful only under the stated finite-space,
 bounded-loss, and identifiability assumptions.
 
-## Statement
+## Bound
 
 Let `Omega` be a finite set of admissible constitutional states. An operator
 publishes a prior `mu0` while privately maintaining `mut0`, with `mut0`
@@ -39,7 +39,7 @@ level.
 
 ## Interpretation
 
-The proposition is a measurement device. It says that, in this stylized model,
+The bound is a measurement device. It says that, in this stylized model,
 critic regret can reflect the gap between the operator's public and private
 constitutional priors. It does not show that a real CAI system exposes such a
 gap, nor that reducing this regret solves alignment.
