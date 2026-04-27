@@ -1,27 +1,45 @@
-# The Constitutional Trilemma: Aggregation, Strategy, and Truth in Constitutional AI
+# The Constitutional Trilemma
 
-**Shuo Li Liu** — Princeton University, Department of Economics
+Shuo Li Liu, Princeton University, Department of Economics
 
-> **Framing.** This paper extends Constitutional AI (Bai et al. 2022) into the multi-critic regime opened by Inverse CAI (Findeis et al. 2024) and Collective CAI (Huang et al. 2024). The trilemma is a *design constraint* a multi-critic CAI deployment must price, not a critique of the original Bai et al. pipeline; the constructive truth-serum-debate companion shows which leg can be bought back and at what cost in nats. The result tightens the case for Constitutional AI by making its safety budget auditable.
+This repository contains a working paper on a constraint that can arise in multi-critic Constitutional AI systems.
 
-## Abstract
+The claim is modest: when a system tries to aggregate several constitutional critics, three desirable properties can conflict:
 
-This paper characterizes a structural three-way tension in multi-critic Constitutional AI: no deployable aggregator can jointly satisfy **(A)** aggregation rationality (Arrovian unanimity, IIA, non-dictatorship), **(S)** strategic robustness (DSIC under paraphrase-equivalent reports), and **(I)** Bayesian incentive compatibility when the operator's private constitutional prior generically misaligns with the population's. The result holds for *k* ≥ 3 principles and |Y| ≥ 3 candidate responses. The (S) leg uses the Mossel-Rácz quantitative Gibbard-Satterthwaite bound; the (I) leg derives from standard Bayesian implementation theory (Crémer-McLean, Myerson, d'Aspremont-Gérard-Varet). A companion proposition (T5.1) gives a two-sided KL-regret bound on the residual welfare loss, pricing the relaxed leg in nats — converting "which axiom does this deployment cede" from qualitative concern to auditable diagnostic. A constructive truth-serum-debate hybrid restores the (I) leg at the cost of one extra forward pass by injecting cross-critic correlation that activates Crémer-McLean's positive case. A pre-registered $2,300 / 8-week TruthfulQA-MC1 protocol operationalizes the headline comparison.
+- Aggregation rationality: the aggregator satisfies standard Arrovian conditions such as unanimity, IIA, and non-dictatorship.
+- Strategic robustness: critics do not benefit from strategically changing paraphrase-equivalent reports.
+- Truthful prior alignment: the mechanism remains Bayesian incentive compatible when the operator's constitutional prior differs from the population's.
 
-## Status
+Under the model in the paper, for at least three principles and at least three candidate responses, an aggregator cannot satisfy all three properties at once. A companion proposition gives a KL-regret way to measure the cost of relaxing one leg. The goal is to make the tradeoff explicit, not to criticize Constitutional AI as a whole.
 
-Working paper. Target venues: EC 2027, NeurIPS 2026 ML Safety Workshop. April 2026 version.
+## What is here
 
-## Repository contents
+- `docs/master_theorem.md`: current derivation and supporting lemmas.
+- `docs/theorem_t51_kl_regret.md`: companion KL-regret proposition.
+- `docs/citations_verified.md`: reference notes and attribution checks.
+- `empirical_plan.pdf`: planned TruthfulQA-MC1 protocol, if present.
+- `references.bib`: bibliography, if present.
 
-- `trilemma_proposal.pdf` — 2-page research proposal
-- `docs/master_theorem.md` — extended proof of the trilemma with all three lemmas (Mossel–Rácz S-leg; Crémer–McLean / Myerson / dAGV I-leg)
-- `docs/theorem_t51_kl_regret.md` — companion proposition T5.1: two-sided KL-regret bound on residual welfare loss when one leg is relaxed
-- `docs/citations_verified.md` — auditor-verified reference list with attribution corrections
-- `empirical_plan.pdf` — pre-registered TruthfulQA-MC1 protocol with power analysis (forthcoming)
-- `references.bib` — BibTeX bibliography (forthcoming)
+## How to inspect
 
-## How to cite
+There is no runnable training or evaluation pipeline in this repository yet. To review the project:
+
+1. Read `docs/master_theorem.md` for the main argument and assumptions.
+2. Read `docs/theorem_t51_kl_regret.md` for the regret diagnostic.
+3. Check `docs/citations_verified.md` against the cited papers.
+
+If code or empirical results are added later, this README should be updated with exact reproduction commands.
+
+## Current limits
+
+- This is a theoretical working paper, not a deployed safety method.
+- The empirical protocol is planned; completed results should not be inferred from this repository.
+- The theorem depends on formal assumptions about the action space, critic reports, priors, and incentive constraints.
+- The KL-regret bound is a diagnostic for the model class described in the paper, not a general safety guarantee.
+- Some listed files may be forthcoming or absent in early snapshots.
+- An older proposal PDF was removed because it no longer reflected the moderated theorem statement.
+
+## Citation
 
 ```bibtex
 @unpublished{liu2026trilemma,
@@ -34,23 +52,16 @@ Working paper. Target venues: EC 2027, NeurIPS 2026 ML Safety Workshop. April 20
 
 ## Related work
 
-- **Constitutional AI** — Bai et al. 2022, [arXiv:2212.08073](https://arxiv.org/abs/2212.08073)
-- **Inverse Constitutional AI** — Findeis et al. 2024, [arXiv:2406.06560](https://arxiv.org/abs/2406.06560)
-- **Collective Constitutional AI** — Huang et al. 2024, [arXiv:2406.07814](https://arxiv.org/abs/2406.07814)
-- **Social choice for AI alignment** — Conitzer et al. 2024, [arXiv:2404.10271](https://arxiv.org/abs/2404.10271)
-- **Axiomatic foundations of RLHF** — Ge et al. 2024, [arXiv:2405.14758](https://arxiv.org/abs/2405.14758)
-- **Bayesian Truth Serum** — Prelec 2004, *Science* 306; Witkowski & Parkes 2012, *AAAI*
-- **AI Safety via Debate** — Irving, Christiano & Amodei 2018, [arXiv:1805.00899](https://arxiv.org/abs/1805.00899)
-- **Quantitative Gibbard-Satterthwaite** — Mossel & Rácz 2015, *Combinatorica* 35(3):339-387
-
-## Companion repo
-
-- [truth-serum-debate](https://github.com/liusulldel/truth-serum-debate) — constructive complement implementing the (A)+(T) corner of the trilemma.
-
-## Contact
-
-Shuo Li Liu — Princeton University, Department of Economics
+- Bai et al. 2022, Constitutional AI, [arXiv:2212.08073](https://arxiv.org/abs/2212.08073)
+- Findeis et al. 2024, Inverse Constitutional AI, [arXiv:2406.06560](https://arxiv.org/abs/2406.06560)
+- Huang et al. 2024, Collective Constitutional AI, [arXiv:2406.07814](https://arxiv.org/abs/2406.07814)
+- Conitzer et al. 2024, Social choice for AI alignment, [arXiv:2404.10271](https://arxiv.org/abs/2404.10271)
+- Ge et al. 2024, Axiomatic foundations of RLHF, [arXiv:2405.14758](https://arxiv.org/abs/2405.14758)
+- Prelec 2004, Bayesian Truth Serum, Science 306
+- Witkowski and Parkes 2012, Peer Prediction without a Common Prior, AAAI
+- Irving, Christiano, and Amodei 2018, AI Safety via Debate, [arXiv:1805.00899](https://arxiv.org/abs/1805.00899)
+- Mossel and Racz 2015, A quantitative Gibbard-Satterthwaite theorem without neutrality, Combinatorica 35(3):339-387
 
 ## License
 
-Manuscript text under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); code (when added) under MIT.
+Manuscript text is under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Code, if added, is intended to be under MIT.
